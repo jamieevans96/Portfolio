@@ -1,4 +1,4 @@
-function debounce(func, wait = 10, immediate = true) {
+function debounce(func, wait = 4, immediate = true) {
 	var timeout;
 	return function() {
 		var context = this, args = arguments;
@@ -15,6 +15,7 @@ function debounce(func, wait = 10, immediate = true) {
 
 const nav = document.querySelectorAll('li > div');
 const ul = document.querySelector('#ul');
+const header = document.querySelector('nav');
 
 const highlight = document.createElement('span');
 highlight.classList.add('highlight');
@@ -53,6 +54,12 @@ function checkSlide(e) {
         nav[1].style.color = '#000';
         nav[2].style.color = '#000';
     };
+    if (window.scrollY > 100) {
+        header.style.padding = '0';
+    }
+    if (window.scrollY < 100) {
+        header.style.padding = '30px 80px';
+    }
 }
 
 window.addEventListener('scroll', debounce(checkSlide));
@@ -107,8 +114,8 @@ ul.addEventListener('mouseenter', function() {
 });
 
 ul.addEventListener('mouseleave', function() {
-    nav[0].innerHTML = 'H';
-    nav[1].innerHTML = 'N';
-    nav[2].innerHTML = 'C';
-    nav[3].innerHTML = 'A';
+    nav[0].innerHTML = '☎';
+    nav[1].innerHTML = '✎';
+    nav[2].innerHTML = '✉';
+    nav[3].innerHTML = '✈';
 });
