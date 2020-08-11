@@ -7,6 +7,7 @@ html {
 body {
     margin: 0;
     height: 200vh;
+    background: #f6f6f6;
 }
 
 h2 {
@@ -16,80 +17,90 @@ h2 {
 .content {
     margin: 0 auto;
     width: 50%;
-    padding-top: 200px;
+    padding: 130px 50px;
+    background: white;
+    box-shadow: 0 1px 5px 2px rgba(0,0,0,0.19);
 }
 
 /* Top Nav Styling */
 nav h1 {
     font-size: 28px;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 nav h4 {
-    margin-top: 0;
+    margin: 0;
 }
 
 nav { 
+    display: flex;
     position: fixed;
-    width: 100%;
+    width: 90%;
     background: #343943;
     z-index: 1;
     color: #fff;
     box-shadow: 0 1px 5px 2px rgba(0,0,0,0.19);
-    padding: 30px 80px;
-    transition: all 1s;
+    padding: 10px 100px;
+    transition: all 0.1s;
 }
 
-/* Side Nav Styling */
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 20vh 0;
-    overflow: hidden;
-    position: fixed;
-    width: 80px;
-    height: 100vh;
+.navitems {
+    display: flex;
+}
+
+li {
+    padding: 0 120px;
+    transition: all 0.1s;
+    color: #fff;
+}
+
+li:hover {
     background: #f6f6f6;
-    transition: width 0.2s;
-    color: white;
-    /* box-shadow: 0 2px 5px 2px rgba(0,0,0,0.19); */
-}
-/* 
-ul:hover {
-    width: 160px;
-} */
-
-li div:hover {
-    background: #343943;
-    color: #fff !important;
+    color: #343943 !important;
     cursor: pointer;
 }
 
 li div {
     display: block;
     text-align: center;
-    padding: 28px 16px;
     text-decoration: none;
     font-size: 14px;
-    color: #343943;
     transition: all 0.1s;
-}
-
-li {
-    padding: 28px 0;
+    line-height: 53px;
+    width: 100px;
 }
 
 .highlight {
     transition: all 0.2s;
-    top: 120px;
     background: #05c0f1;
     left: 0;
     z-index: -1;
     position: absolute;
-    width: 100%;
-    height: 74px;
+    width: 340px;
+    height: 53px;
 /*     box-shadow: inset 0 2px 5px 1px rgba(0,0,0,0.19); */
 }
+
+ul {
+    list-style-type: none;
+    display: inline-flex;
+    padding-inline-start: 120px;
+    /* background: aliceblue; */
+    margin: 0;
+    /* padding: 20vh 0;
+    overflow: hidden;
+    position: fixed;
+    width: 80px;
+    height: 100vh;
+    background: #f6f6f6;
+    transition: width 0.2s;
+    color: white; */
+    /* box-shadow: 0 2px 5px 2px rgba(0,0,0,0.19); */
+}
+
+/* ul:hover {
+    width: 160px;
+} */
 
 /* Projects Area Styling */
 .container {
@@ -97,7 +108,6 @@ li {
     background-color: #f6f6f6;
     padding: 50px;
     margin: 0 auto;
-    box-shadow: 0 2px 5px 1px rgba(0,0,0,0.19);
 }
 
 .altContainer {
@@ -105,7 +115,6 @@ li {
     background-color: #f6f6f6;
     padding: 50px;
     margin: 0 auto;
-    box-shadow: 0 2px 5px 1px rgba(0,0,0,0.19);
 }
 
 .altItem {

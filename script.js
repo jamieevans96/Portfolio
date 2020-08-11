@@ -22,44 +22,38 @@ highlight.classList.add('highlight');
 ul.append(highlight);
 
 function checkSlide(e) {
-    if (window.scrollY >= 0) {
-        highlight.style.top = nav[0].offsetTop + 'px';
-        nav[0].style.color = '#fff'
+  if (window.scrollY >= 0) {
+      highlight.style.left = nav[0].offsetLeft - 120 + 'px';
+      nav[0].style.color = '#343943'
 
-        nav[1].style.color = '#000';
-        nav[2].style.color = '#000';
-        nav[3].style.color = '#000';
-    };
-    if (window.scrollY > 242) {
-        highlight.style.top = nav[1].offsetTop + 'px';
-        nav[1].style.color = '#fff'
+      nav[1].style.color = '#fff';
+      nav[2].style.color = '#fff';
+      nav[3].style.color = '#fff';
+  };
+  if (window.scrollY > 242) {
+      highlight.style.left = nav[1].offsetLeft - 120 + 'px';
+      nav[1].style.color = '#343943'
 
-        nav[0].style.color = '#000';
-        nav[2].style.color = '#000';
-        nav[3].style.color = '#000';
-    };
-    if (window.scrollY > 484) {
-        highlight.style.top = nav[2].offsetTop + 'px';
-        nav[2].style.color = '#fff'
+      nav[0].style.color = '#fff';
+      nav[2].style.color = '#fff';
+      nav[3].style.color = '#fff';
+  };
+  if (window.scrollY > 484) {
+      highlight.style.left = nav[2].offsetLeft - 120 + 'px';
+      nav[2].style.color = '#343943'
 
-        nav[0].style.color = '#000';
-        nav[1].style.color = '#000';
-        nav[3].style.color = '#000';
-    };
-    if (window.scrollY > 727) {
-        highlight.style.top = nav[3].offsetTop + 'px';
-        nav[3].style.color = '#fff'
+      nav[0].style.color = '#fff';
+      nav[1].style.color = '#fff';
+      nav[3].style.color = '#fff';
+  };
+  if (window.scrollY > 727) {
+      highlight.style.left = nav[3].offsetLeft  - 120 + 'px';
+      nav[3].style.color = '#343943'
 
-        nav[0].style.color = '#000';
-        nav[1].style.color = '#000';
-        nav[2].style.color = '#000';
-    };
-    if (window.scrollY > 100) {
-        header.style.padding = '0';
-    }
-    if (window.scrollY < 100) {
-        header.style.padding = '30px 80px';
-    }
+      nav[0].style.color = '#fff';
+      nav[1].style.color = '#fff';
+      nav[2].style.color = '#fff';
+  };
 }
 
 window.addEventListener('scroll', debounce(checkSlide));
