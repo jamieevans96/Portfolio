@@ -16,6 +16,7 @@ function debounce(func, wait = 4, immediate = true) {
 const nav = document.querySelectorAll('li > div');
 const ul = document.querySelector('#ul');
 const header = document.querySelector('nav');
+const projCont = document.querySelector('.projects > .content');
 
 const highlight = document.createElement('span');
 highlight.classList.add('highlight');
@@ -29,31 +30,34 @@ function checkSlide(e) {
       nav[1].style.color = '#fff';
       nav[2].style.color = '#fff';
       nav[3].style.color = '#fff';
-  };
-  if (window.scrollY > 242) {
+    };
+  if (window.scrollY >= 0.5 * window.innerHeight) {
       highlight.style.left = nav[1].offsetLeft - 120 + 'px';
       nav[1].style.color = '#343943'
 
       nav[0].style.color = '#fff';
       nav[2].style.color = '#fff';
       nav[3].style.color = '#fff';
-  };
-  if (window.scrollY > 484) {
+
+      projCont.style.transform = 'translateY(0)';
+      projCont.style.opacity = '1';
+    };
+  if (window.scrollY >= 1.5 * window.innerHeight) {
       highlight.style.left = nav[2].offsetLeft - 120 + 'px';
       nav[2].style.color = '#343943'
 
       nav[0].style.color = '#fff';
       nav[1].style.color = '#fff';
       nav[3].style.color = '#fff';
-  };
-  if (window.scrollY > 727) {
+    };
+  if (window.scrollY >= 2.5 * window.innerHeight) {
       highlight.style.left = nav[3].offsetLeft  - 120 + 'px';
       nav[3].style.color = '#343943'
 
       nav[0].style.color = '#fff';
       nav[1].style.color = '#fff';
       nav[2].style.color = '#fff';
-  };
+    };
 }
 
 window.addEventListener('scroll', debounce(checkSlide));
@@ -63,13 +67,13 @@ nav.forEach((item, index) => item.addEventListener('click', function() {
     window.scrollTo(0, 0);
   }
   else if (index === 1) {
-    window.scrollTo(0, 243);
+    window.scrollTo(0, window.innerHeight);
   }
   else if (index === 2) {
-    window.scrollTo(0, 485);
+    window.scrollTo(0, 2 * window.innerHeight);
   }
   else if (index === 3) {
-    window.scrollTo(0, 728);
+    window.scrollTo(0, 3 * window.innerHeight);
   }
 }));
 
