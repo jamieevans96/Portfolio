@@ -4,14 +4,22 @@ const timelinePage = document.querySelector('.timelinePage')
 
 seeMore.addEventListener('click', () => window.scrollTo(0, titlePage.offsetHeight))
 
-
-let lineItems = document.querySelectorAll('.lineItem > h4')
+const lineItems = document.querySelectorAll('.lineItem > h4')
+const year = document.querySelector('.line > h5')
 
 window.addEventListener('scroll', (e) => {
-    (window.scrollY > 1800) && (lineItems[0].style = 'transform: translateX(0); opacity: 1');
-    (window.scrollY > 1900) && (lineItems[1].style = 'transform: translateX(0); opacity: 1');
-    (window.scrollY > 2000) && (lineItems[2].style = 'transform: translateX(0); opacity: 1');
-    (window.scrollY > 2100) && (lineItems[3].style = 'transform: translateX(0); opacity: 1');
+    if (window.scrollY >= 1800) { 
+        lineItems[0].style = 'transform: translateX(0); opacity: 1';
+    }
+    if (window.scrollY >= 2000) { 
+        lineItems[2].style = 'transform: translateX(0); opacity: 1';
+    }
+    if (window.scrollY >= 2200) { 
+        lineItems[1].style = 'transform: translateX(0); opacity: 1';
+    }
+    if (window.scrollY >= 2400) { 
+        lineItems[3].style = 'transform: translateX(0); opacity: 1';
+    }
 })
 
 
@@ -32,6 +40,14 @@ const formatTime = time => time < 10 ? (`0${time}`) : time;
 
 let startTimer = setInterval(getTime, 1000)
 
+
+const line2 = document.querySelector('.line2')
+const contact = document.querySelector('.contact')
+
 window.onscroll = () => {
-    ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) && clearInterval(startTimer)
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        clearInterval(startTimer)
+        line2.style = 'margin: 0 350px 0 50px; height: 50%'
+        contact.style = 'transform: translateY(0); opacity: 1'
+    }
 };

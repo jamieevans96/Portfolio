@@ -40,9 +40,8 @@ html {
     font-size: 64px;
     /* background-image: url('./img/bg.jpg');
     background-size: cover; */
-    filter: invert(0);
+    filter: invert(1);
     font-weight: bold;
-    background-color: rgb(243, 134, 15);
     overflow: hidden;
     height: 174px;
 }
@@ -104,8 +103,8 @@ html {
 }
 
 .projectsPage {
-    height: auto;
-    /* height: 100vh; */
+    /* height: auto; */
+    height: 100vh;
     background-color: #fff;
     /* background-image: url('./img/bg3.jpg');
     background-size: cover;
@@ -119,26 +118,49 @@ html {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     color: #555;
-    padding-left: 150px
+    position: sticky;
+    top: 50px;
+    flex-grow: 1;
 }
 
 .projects {
     display: flex;
-    max-width: 1480px;
     margin: 0 auto;
     overflow: hidden;
     object-fit: cover;
+    flex-wrap: wrap;
+    flex-grow: 4;
+    height: 100%;
+}
+
+.column {
+    flex: 50%;
+    max-width: 50%;
+    padding: 0 4px;
+    display: flex;
     flex-direction: column;
+    gap: 10px;
+    height: 100%;
 }
 
 .projectContainer {
-    width: 100%;
+    min-width: 100%;
     transition: all 0.1s;
     position: relative;
+    flex-grow: 1;
+    background-color: rgb(218, 35, 35);
+    height: 200px;
+    overflow: hidden;
 }
 
 .projectContainer:hover {
     opacity: 1;
+}
+
+.projectContainer > img {
+    min-width: 100%;
+    object-fit: none;
+    filter: grayscale(0.6);
 }
 
 .projectContainer:hover .overlay{
@@ -172,7 +194,7 @@ html {
 }
 
 .timelinePage {
-    background-image: url('./img/bg2.jpg');
+    background-image: url('./img/timeline.jpg');
     background-color: #394e75;
     background-size: cover;
     background-repeat: no-repeat;
@@ -227,12 +249,22 @@ html {
 }
 
 .lineItem > h4 {
-    background-color: #fff;
-    margin: 20px;
+    margin: 20px 20px 250px 20px;
     height: 100px;
     width: 60%;
     transition: all 0.4s;
     opacity: 0;
+    padding: 10px;
+}
+
+.borderBox {
+    border: solid #34495a 3px;
+    color: #000;
+}
+
+.fullBox {
+    background-color: #34495a;
+    color: #fff
 }
 
 .right {
@@ -254,23 +286,24 @@ html {
 
 .left > h4 {
     transform: translateX(-50px);
-    clip-path: polygon(0 0, 90% 0, 90% 35%, 100% 50%, 90% 65%, 90% 100%, 0 100%);
+    text-align: left;
 }
 
 .right > h4 {
     transform: translateX(50px);
-    clip-path: polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 10% 65%, 0 50%, 10% 35%);
+    text-align: right;
 }
 
 .timerPage {
     height: 60vh;
+    color: #666;
 }
 
 .timer {
     display: flex;
     flex-direction: column;
-    color: #666;
     width: 300px;
+    transition: all 1s ease;
 }
 
 .timer > h2, .timer > h1, .timer > h5 {
@@ -286,4 +319,45 @@ html {
     padding: 0 20px;
     font-weight: bold;
     font-size: 46px;
+}
+
+.line2 {
+    width: 5px;
+    height: 0;
+    background-color:#333;
+    border-radius: 2px 2px 0 0;
+    transition: all 1s ease;
+}
+
+.contact {
+    position: absolute;
+    left: calc(50% + 50px);
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 5px 20px;
+}
+
+.contact > button {
+    padding: 10px 20px;
+    background-color: transparent;
+    outline: none;
+    border: solid 2px #666;
+    transition: all 0.4s;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.contact > button:hover {
+    background-color: #333;
+    color: #fff
 }
