@@ -25,33 +25,30 @@ html {
     display: flex;
     height: 100vh;
     width: 100%;
-    background-image: url('./img/bg.jpg');
+    background-image: url('./img/bg4.jpg');
     background-color: #394e75;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: center;
 }
 
 .title {
     justify-content: center;
     align-items: center;
-    color: #111;
+    color: #333;
     padding: 10px;
-    font-size: 64px;
+    font-size: 48px;
     /* background-image: url('./img/bg.jpg');
     background-size: cover; */
-    filter: invert(1);
+    filter: invert(0);
     font-weight: bold;
-    overflow: hidden;
-    height: 174px;
+    /* overflow: hidden; */
+    /* height: 174px; */
 }
 
-.title > h1 {
-    transition: transform 0.5s;
-}
-
-.title:hover h1 {
-    transform: translateY(-154px)
+.title > h1, .title > h5 {
+    text-align: center;
 }
 
 .seeMore {
@@ -70,8 +67,9 @@ html {
 }
 
 .aboutPage {
-    height: 60vh;
+    height: 70vh;
     background-color: #fff;
+    flex-direction: column;
 }
 
 .about {
@@ -102,14 +100,48 @@ html {
     font-weight: normal;
 }
 
+.skills {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.skill {
+    display: flex;
+    height: 100%;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    flex-direction: column;
+    color: #fff;
+    font-weight: bold;
+    background-color:rgb(47, 69, 77);
+    cursor: default;
+}
+
+.skill::after {
+    content: '';
+    position: relative;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background-color:rgb(47, 69, 77);
+    transition: top 0.2s ease;
+}
+
+.skill:hover::after {
+    top: 30%;
+}
+
 .projectsPage {
     /* height: auto; */
-    height: 100vh;
+    height: 120vh;
     background-color: #fff;
     /* background-image: url('./img/bg3.jpg');
     background-size: cover;
     background-repeat: no-repeat;*/
-    padding: 0 50px 150px 50px;
+    padding: 0 250px 150px 250px;
     align-items: flex-start;
 }
 
@@ -148,7 +180,7 @@ html {
     transition: all 0.1s;
     position: relative;
     flex-grow: 1;
-    background-color: rgb(218, 35, 35);
+    background-color: transparent;
     height: 200px;
     overflow: hidden;
 }
@@ -158,9 +190,11 @@ html {
 }
 
 .projectContainer > img {
-    min-width: 100%;
-    object-fit: none;
-    filter: grayscale(0.6);
+    width: 100%;
+    object-fit: cover;
+    /* filter: grayscale(0.6); */
+    height: auto;
+    object-position: center;
 }
 
 .projectContainer:hover .overlay{
@@ -170,31 +204,32 @@ html {
 .overlay {
     position: absolute;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
     height: 100%;
     width: 100%;
+    padding: 20px;
     opacity: 0;
     transition: all 0.2s;
     display: flex;
     justify-content: center;
-    align-items: center;
     background-color: #fff;
     flex-direction: column;
+    gap: 15px
 }
 
-.overlay > div > i {
-    transition: all 0.2s;
-    cursor: pointer;
+.overlayTitle, .languages {
+    display: flex;
 }
 
-.overlay > div > i:hover {
-    transform: translateY(-2px);
+.overlayTitle \{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .timelinePage {
-    background-image: url('./img/timeline.jpg');
+    /* background-image: url('./img/timeline.jpg'); */
+    /* background-image: url('./img/bg.jpg'); */
     background-color: #394e75;
     background-size: cover;
     background-repeat: no-repeat;
@@ -229,17 +264,22 @@ html {
     border-radius: 2px 2px 0 0;
 }
 
-.line::after {
+.segment, .lastSegment {
     position: relative;
-    content: '';
-    width: 20px;
-    height: 20px;
-    display: block;
-    background-color: transparent;
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    right: 5px;
     border-radius: 50%;
-    border: white solid 5px;
-    top: 100%;
-    right: 250%;
+}
+
+.lastSegment {
+    width: 25px;
+    height: 25px;
+    border: solid #fff 5px;
+    background-color: transparent;
+    top: 94%;
+    right: 10px;
 }
 
 .columns {
@@ -248,10 +288,10 @@ html {
     display: flex;
 }
 
-.lineItem > h4 {
+.lineItem > div {
     margin: 20px 20px 250px 20px;
-    height: 100px;
-    width: 60%;
+    height: 20%;
+    width: 80%;
     transition: all 0.4s;
     opacity: 0;
     padding: 10px;
@@ -259,7 +299,7 @@ html {
 
 .borderBox {
     border: solid #34495a 3px;
-    color: #000;
+    color: #fff;
 }
 
 .fullBox {
@@ -267,9 +307,14 @@ html {
     color: #fff
 }
 
+.fullBox > h2, .borderBox > h2 {
+    padding-bottom: 20px;
+}
+
 .right {
-    top: 30%;
+    top: 34%;
     align-items: flex-start;
+    text-align: right;
 }
 
 .left {
@@ -284,14 +329,38 @@ html {
     flex-direction: column;
 }
 
-.left > h4 {
+.left > div {
     transform: translateX(-50px);
     text-align: left;
 }
 
-.right > h4 {
+.right > div {
     transform: translateX(50px);
     text-align: right;
+}
+
+.left > .fullBox::after, .left > .borderBox::after {
+    position: absolute;
+    content: '2014';
+    color: #000;
+    width: 50px;
+    display: block;
+    background-color: #fff;
+    top: calc(50%);
+    left: 110%;
+    padding: 10px;
+}
+
+.right > .fullBox::after, .right > .borderBox::after {
+    position: absolute;
+    content: '2014';
+    color: #000;
+    width: 50px;
+    display: block;
+    background-color: #fff;
+    top: calc(50%);
+    right: 110%;
+    padding: 10px;
 }
 
 .timerPage {
@@ -360,4 +429,24 @@ html {
 .contact > button:hover {
     background-color: #333;
     color: #fff
+}
+
+@media (max-width: 1280px) {
+    .about {
+        width: 80%;
+    }
+    
+    .about img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .projectsPage {
+        padding: 0 50px 150px 50px;
+    }
+
+    .projectContainer > img {
+        width: auto;
+        height: 100%;
+    }
 }

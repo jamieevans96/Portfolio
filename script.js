@@ -4,7 +4,7 @@ const timelinePage = document.querySelector('.timelinePage')
 
 seeMore.addEventListener('click', () => window.scrollTo(0, titlePage.offsetHeight))
 
-const lineItems = document.querySelectorAll('.lineItem > h4')
+const lineItems = document.querySelectorAll('.lineItem > div')
 const year = document.querySelector('.line > h5')
 
 window.addEventListener('scroll', (e) => {
